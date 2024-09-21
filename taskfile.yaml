@@ -1,0 +1,14 @@
+version: 3
+
+env:
+
+tasks:
+  flash:
+    path: .
+    cmds:
+      - tinygo flash -target arduino .
+
+  monitor:
+    path: .
+    cmds:
+      - tinygo monitor -target arduino
