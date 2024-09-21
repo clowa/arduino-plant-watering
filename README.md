@@ -2,6 +2,8 @@
 
 This is a small home arduino project to automatically water my plants. The project is based on an Arduino Uno R3, a soil moisture sensor, a water pump and a electronic switch (MOSFET). The soil moisture sensor is used to measure the moisture level of the soil and the water pump is used to water the plants. The MOSFET is used to control the water pump because the pump runs on another voltage than the board itself.
 
+For wiring and components, see the [Wiring](./docs/README.md).
+
 ## Getting Started
 
 ### Prerequisites
