@@ -3,12 +3,27 @@ version: 3
 env:
 
 tasks:
+  build:
+    path: .
+    cmds:
+      - tinygo build -target arduino -o bin/main.hex {{.CLI_ARGS}} .
+
   flash:
     path: .
     cmds:
-      - tinygo flash -target arduino .
+      - tinygo flash -target arduino -baudrate 9600 {{.CLI_ARGS}}  .
+
+  flash-scheduler:
+    path: .
+    cmds:
+      - tinygo flash -target arduino -baudrate 9600 --scheduler tasks {{.CLI_ARGS}}  .
+
+  build-scheduler:
+    path: .
+    cmds:
+      - tinygo build -target arduino -scheduler tasks -o bin/main.hex {{.CLI_ARGS}} .
 
   monitor:
     path: .
     cmds:
-      - tinygo monitor -target arduino
+      - tinygo monitor -target arduino -baudrate 9600

@@ -2,6 +2,7 @@
   "go.toolsEnvVars": {
     "GOOS": "linux",
     "GOARCH": "arm",
-    "GOFLAGS": "-tags=avr,baremetal,linux,arm,atmega328p,atmega,avr5,arduino,tinygo,purego,osusergo,math_big_pure_go,gc.conservative,scheduler.none,serial.uart"
+    "GOFLAGS": "-tags=avr,baremetal,linux,arm,atmega328p,atmega,avr5,arduino,tinygo,purego,osusergo,math_big_pure_go,gc.conservative,scheduler.none,serial.uart",
+    "GOROOT": "~/Library/Caches/tinygo/goroot-a02c847ffd7efbf1e1c759b3cf7d01927ed38f0106b48dbfb04faff6caf9ce40"
   }
 }
