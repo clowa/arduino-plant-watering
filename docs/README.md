@@ -80,7 +80,7 @@ For Option 2 Pumps: `1N5822` [Pollin.de](https://www.pollin.de/p/schottky-diode-
 
 ### Power Supply (12V)
 
-`INTER-TECH LED Power Supply LED 12V-/75 W` [Pollin.de](https://www.pollin.de/p/inter-tech-led-netzteil-led-12v-75-w-537994)
+`SHNITPWR 12V Power Supply AC 100V ~ 240V to DC 12V 10A 120W` [Amazon](https://www.amazon.de/gp/product/B08XWJFGFB/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 
 Output Voltage: `12V`  
 Output Current: `6.25A`  
