@@ -48,6 +48,49 @@ Plant soil:
 | Wet soil | 16064            | _ToDo_           |
 | Dry soil | _ToDo_           | _ToDo_           |
 
+### MOSFET
+
+`FET STP60NF10, N-Channel, 100V, TO-220` [Pollin.de](https://www.pollin.de/p/fet-stp60nf10-n-cahnnel-100v-to-220-131022)
+
+Key Specifications of STP60NF10:
+
+- VDS (Drain-Source Voltage): 100V  
+_This is much more than you need for your 12V circuit, so it provides a good safety margin._
+
+- ID (Continuous Drain Current): 80A  
+_This is far more than you need for your small water pumps. Having such a high current rating means the MOSFET will easily handle the startup surge of the pumps without overheating._
+
+- Rds(on) (On-State Resistance): 0.019Ω  
+_This is very low, meaning the MOSFET will have minimal resistance when it's on, leading to less heat and higher efficiency, especially when switching at high currents._
+
+- Package: TO-220  
+_The TO-220 package is common in power electronics and easy to work with for heatsinking if you need to dissipate any heat, but with your pump's lower current draw, you may not even need a heatsink._
+
+### Pumps
+
+Option 1: `Water pump 8-12 V-, 1,5 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-8-12-v-1-5-l-min-330134)
+
+Option 2: `Water pump 12 V-, 10 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-12-v-10-l-min-330102)
+
+### Flyback Diode
+
+For Option 1 Pumps: `1N5819` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5819-140731)
+
+For Option 2 Pumps: `1N5822` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5822-3-a-40-v-936059)
+
+### Power Supply (12V)
+
+`INTER-TECH LED Power Supply LED 12V-/75 W` [Pollin.de](https://www.pollin.de/p/inter-tech-led-netzteil-led-12v-75-w-537994)
+
+Output Voltage: `12V`  
+Output Current: `6.25A`  
+Total Power Output: `75W`  
+
+This should be enough for both pump options.
+
+- For 6x Option 1 pumps, the total current draw is only `2.1A` _( 6 × 350mA = 2.1A)_, which is well within the `6.25A` capability of this power supply.
+- For 3x Option 2 pumps, the total current draw is `5.4A` _(3 × 1.8A = 5.4A)_, also safely within the power supply’s capacity.
+
 ### Ultrasonic Sensors
 
 `Fdit 5V water proof ultrasonic sensor (Fdith9obv7uqge)` [Amazon](https://www.amazon.de/dp/B07N5GHZVX?ref=ppx_yo2ov_dt_b_fed_asin_title)
