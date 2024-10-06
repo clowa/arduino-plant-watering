@@ -13,12 +13,11 @@ const (
 var (
 	moistureSensor1 = machine.ADC{Pin: machine.ADC0}
 	greenLed        = machine.D13
-	redLed          = machine.D12
 )
 
 func main() {
 	machine.InitADC() //! Better don't forget to initialize ADC
-	configureDigitalOutputPins(greenLed, redLed)
+	configureDigitalOutputPins(greenLed)
 
 	moistureSensor1.Configure(machine.ADCConfig{
 		Reference:  5000, // 5 Volts
@@ -29,7 +28,7 @@ func main() {
 	for {
 		moisture := readMoisture(moistureSensor1)
 		println("Moisture level: ", moisture)
-		controlLights(moisture, greenLed, redLed)
+		controlPump(moisture, greenLed)
 
 		time.Sleep(measureInterval)
 	}
@@ -47,25 +46,20 @@ func readMoisture(sensor machine.ADC) uint16 {
 	return sensor.Get() // Analog value of moisture level
 }
 
-// controlLights controls the LEDs based on the moisture level
-func controlLights(moisture uint16, ok machine.Pin, warn machine.Pin) {
-	const ledBlinkDuration = time.Millisecond * 500
+// controlPump controls the LEDs based on the moisture level
+func controlPump(moisture uint16, pump machine.Pin) {
+	const wateringTime = time.Second * 1
 
 	// If moisture level is dried, turn on the warning light
 	if moisture > moistureThreshold {
-		blink(warn, ok, ledBlinkDuration)
+		executePumpAction(pump, wateringTime)
 		return
 	}
-
-	// If moisture level is wet, turn on the OK light
-	blink(ok, warn, ledBlinkDuration)
 }
 
-// blink blinks the given LED for the given duration and turns off the counter LED
-func blink(led machine.Pin, counterLed machine.Pin, duration time.Duration) {
-	counterLed.Low()
-
-	led.High()
+// executePumpAction starts a pump for a certain duration
+func executePumpAction(pump machine.Pin, duration time.Duration) {
+	pump.High()
 	time.Sleep(duration)
-	led.Low()
+	pump.Low()
 }
