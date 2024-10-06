@@ -6,9 +6,10 @@
 
 - 1x Arduino Uno R3
 - 3x Water pump (12V)
-- 3x MOSFET (TODO: Add type)
+- 3x MOSFET (N-Channel)
 - 3x Resistor (10k Ohm)
 - 3x Flyback diode
+- Wires
 
 ## Explanations
 
@@ -17,9 +18,12 @@
 
 ## Open questions
 
-- Can the pumps actually be powered by the same 12 V power supply?
-- What can be used to control the speed of the pumps? _PWM?_
-- What can be used to measure the water level in the water tank?
+- Can the pumps actually be powered by the same 12 V power supply?  
+  -> Yes they can, as long as the power supply can provide enough current for all pumps.
+- What can be used to control the speed of the pumps?  
+  -> You can use PWM (Pulse Width Modulation) to control the speed of the pumps. However, be aware that the excess energy will be dissipated as heat.
+- What can be used to measure the water level in the water tank?  
+  -> There are a lot of different options to measure the water level in a tank. Some of the most common are ultrasonic sensors, float switches and capacitive liquid level sensors. The best option will depend on the specifications of the water tank and the requirements of the project. Mostly a small float switch will be enough to detect the water level in the tank.
 
 ## Hardware
 
@@ -68,15 +72,23 @@ _The TO-220 package is common in power electronics and easy to work with for hea
 
 ### Pumps
 
-Option 1: `Water pump 8-12 V-, 1,5 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-8-12-v-1-5-l-min-330134)
+> [!NOTE]
+> The selection of the appropriate pump - be it a centrifugal pump, submersible pump, or self-priming pump - depends on it's planed installation location. Each type of pump has distinct requirements regarding the positioning of the tank and whether the hoses need to be primed with liquid. For instance a centrifugal pump needs to be primed with liquid before it can start pumping, while a submersible pump can be placed directly in the water.
 
-Option 2: `Water pump 12 V-, 10 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-12-v-10-l-min-330102)
+#### Centrifugal Pump
+
+Option 1.1: `Water pump 8-12 V-, 1,5 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-8-12-v-1-5-l-min-330134)
+
+Option 1.2: `Water pump 12 V-, 10 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-12-v-10-l-min-330102)
 
 ### Flyback Diode
 
-For Option 1 Pumps: `1N5819` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5819-140731)
+> [!IMPORTANT]
+> Please be aware that depending on the pump you choose, you may need to adjust the flyback diode to match the pump's current rating.
 
-For Option 2 Pumps: `1N5822` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5822-3-a-40-v-936059)
+For Option 1.1 Pumps: `1N5819` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5819-140731)
+
+For Option 1.2 Pumps: `1N5822` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5822-3-a-40-v-936059)
 
 ### Power Supply (12V)
 
@@ -88,8 +100,8 @@ Total Power Output: `75W`
 
 This should be enough for both pump options.
 
-- For 6x Option 1 pumps, the total current draw is only `2.1A` _( 6 × 350mA = 2.1A)_, which is well within the `6.25A` capability of this power supply.
-- For 3x Option 2 pumps, the total current draw is `5.4A` _(3 × 1.8A = 5.4A)_, also safely within the power supply’s capacity.
+- For 6x Option 1.1 pumps, the total current draw is only `2.1A` _( 6 × 350mA = 2.1A)_, which is well within the `6.25A` capability of this power supply.
+- For 3x Option 1.2 pumps, the total current draw is `5.4A` _(3 × 1.8A = 5.4A)_, also safely within the power supply’s capacity.
 
 ### Ultrasonic Sensors
 
