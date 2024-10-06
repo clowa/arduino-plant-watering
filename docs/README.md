@@ -94,10 +94,6 @@ For Option 1.2 Pumps: `1N5822` [Pollin.de](https://www.pollin.de/p/schottky-diod
 
 `SHNITPWR 12V Power Supply AC 100V ~ 240V to DC 12V 10A 120W` [Amazon](https://www.amazon.de/gp/product/B08XWJFGFB/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 
-Output Voltage: `12V`  
-Output Current: `6.25A`  
-Total Power Output: `75W`  
-
 This should be enough for both pump options.
 
 - For 6x Option 1.1 pumps, the total current draw is only `2.1A` _( 6 × 350mA = 2.1A)_, which is well within the `6.25A` capability of this power supply.
