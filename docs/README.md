@@ -29,9 +29,13 @@
 
 ### Moisture Sensor
 
-`APKLVSR Capacitive Soil Moisture Sensor v1.2` [Amazon](https://www.amazon.de/dp/B0CQNF7S7L?ref=ppx_yo2ov_dt_b_fed_asin_title)
+Option 1.1: `Adafruit STEMMA Soil Sensor - I2C Capacitive Moisture Sensor - JST PH 2mm` [Adafruit](https://www.adafruit.com/product/4026) + `Kable` [Adafruit](https://www.adafruit.com/product/3955)
 
-#### Test measures
+Option 1.2: `APKLVSR Capacitive Soil Moisture Sensor v1.2` [Amazon](https://www.amazon.de/dp/B0CQNF7S7L?ref=ppx_yo2ov_dt_b_fed_asin_title)
+
+#### Test measures - Option 1.2
+
+Air:
 
 | Type     | Moisture Value 1 | Moisture Value 2 |
 |----------|------------------|------------------|
@@ -77,18 +81,18 @@ _The TO-220 package is common in power electronics and easy to work with for hea
 
 #### Centrifugal Pump
 
-Option 1.1: `Water pump 8-12 V-, 1,5 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-8-12-v-1-5-l-min-330134)
+Option 2.1: `Water pump 8-12 V-, 1,5 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-8-12-v-1-5-l-min-330134)
 
-Option 1.2: `Water pump 12 V-, 10 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-12-v-10-l-min-330102)
+Option 2.2: `Water pump 12 V-, 10 l/min.` [Pollin.de](https://www.pollin.de/p/wasserpumpe-12-v-10-l-min-330102)
 
 ### Flyback Diode
 
 > [!IMPORTANT]
 > Please be aware that depending on the pump you choose, you may need to adjust the flyback diode to match the pump's current rating.
 
-For Option 1.1 Pumps: `1N5819` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5819-140731)
+For Option 2.1 Pumps: `1N5819` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5819-140731)
 
-For Option 1.2 Pumps: `1N5822` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5822-3-a-40-v-936059)
+For Option 2.2 Pumps: `1N5822` [Pollin.de](https://www.pollin.de/p/schottky-diode-1n5822-3-a-40-v-936059)
 
 ### Power Supply (12V)
 
@@ -96,8 +100,8 @@ For Option 1.2 Pumps: `1N5822` [Pollin.de](https://www.pollin.de/p/schottky-diod
 
 This should be enough for both pump options.
 
-- For 6x Option 1.1 pumps, the total current draw is only `2.1A` _( 6 × 350mA = 2.1A)_, which is well within the `6.25A` capability of this power supply.
-- For 3x Option 1.2 pumps, the total current draw is `5.4A` _(3 × 1.8A = 5.4A)_, also safely within the power supply’s capacity.
+- For 6x Option 2.1 pumps, the total current draw is only `2.1A` _( 6 × 350mA = 2.1A)_, which is well within the `6.25A` capability of this power supply.
+- For 3x Option 2.2 pumps, the total current draw is `5.4A` _(3 × 1.8A = 5.4A)_, also safely within the power supply’s capacity.
 
 ### Ultrasonic Sensors
 
