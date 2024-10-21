@@ -27,9 +27,14 @@
 
 ## Hardware
 
+> [!NOTE]
+> Some of the shops have different distributors for different countries. Please check the availability of the components in your country.
+>
+> - [Adafruit Distributors](https://www.adafruit.com/distributors#Europe-Germany)
+
 ### Moisture Sensor
 
-Option 1.1: `Adafruit STEMMA Soil Sensor - I2C Capacitive Moisture Sensor - JST PH 2mm` [Adafruit](https://www.adafruit.com/product/4026) + `Kable` [Adafruit](https://www.adafruit.com/product/3955)
+Option 1.1: `Adafruit STEMMA Soil Sensor - I2C Capacitive Moisture Sensor - JST PH 2mm` [Eckstein](https://eckstein-shop.de/Adafruit-STEMMA-Soil-Sensor-I2C-Capacitive-Moisture-Sensor)/[Adafruit](https://www.adafruit.com/product/4026) + `Kable` [Eckstein](https://eckstein-shop.de/Adafruit-JST-PH-4-Pin-to-Male-Header-Cable-I2C-STEMMA-Cable-200mm)/[Adafruit](https://www.adafruit.com/product/3955)
 
 Option 1.2: `APKLVSR Capacitive Soil Moisture Sensor v1.2` [Amazon](https://www.amazon.de/dp/B0CQNF7S7L?ref=ppx_yo2ov_dt_b_fed_asin_title)
 
