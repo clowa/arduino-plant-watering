@@ -13,7 +13,7 @@ const (
 var (
 	// Plant pair 1
 	moistureSensor1 = machine.ADC{Pin: machine.ADC0}
-	pump1           = machine.D12
+	pump1           = machine.D11
 )
 
 func main() {
