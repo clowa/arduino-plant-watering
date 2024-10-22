@@ -38,6 +38,9 @@ Option 1.1: `Adafruit STEMMA Soil Sensor - I2C Capacitive Moisture Sensor - JST 
 
 Option 1.2: `APKLVSR Capacitive Soil Moisture Sensor v1.2` [Amazon](https://www.amazon.de/dp/B0CQNF7S7L?ref=ppx_yo2ov_dt_b_fed_asin_title)
 
+The sensor includes an on-board 3.3V voltage regulator, making it suitable for 3.3V and 5V MCUs. Plus, it consumes less than 5mA of current.  
+Note that this sensor can only provide a qualitative measurement of soil moisture. As the soil gets wetter, the output value decreases, and as it gets drier, the output value increases. When powered at 5V, the output ranges from about 1.5V (for wet soil) to 3V (for dry soil). _[Source](https://lastminuteengineers.com/capacitive-soil-moisture-sensor-arduino/?__im-UquXvsDs=10996131036671237076&__im-uHzARKFj=9865071246963507851&__im-YksPekTp=15683107729725552582&__im-wjDNCuCu=1635606331705864572&__im-lvfKpTql=17721242664420014734&__im-UJsVCmoP=14109048684889245548)_
+
 #### Test measures - Option 1.2
 
 Air:
