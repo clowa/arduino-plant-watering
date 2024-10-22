@@ -6,18 +6,19 @@ import (
 )
 
 const (
-	measureInterval   = time.Second * 60
-	moistureThreshold = 23000 // Higher moisture level means the soil is drier
+	measureFrequency  = time.Second * 60
+	moistureThreshold = 21000 // Higher moisture level means the soil is drier
 )
 
 var (
+	// Plant pair 1
 	moistureSensor1 = machine.ADC{Pin: machine.ADC0}
-	greenLed        = machine.D13
+	pump1           = machine.D12
 )
 
 func main() {
 	machine.InitADC() //! Better don't forget to initialize ADC
-	configureDigitalOutputPins(greenLed)
+	configureDigitalOutputPins(pump1)
 	configureAnalogInputPins(machine.ADCConfig{
 		Reference:  5000, // 5 Volts
 		Resolution: 10,   // 10 bits
@@ -25,11 +26,8 @@ func main() {
 
 	// Check the moisture level in a certain interval
 	for {
-		moisture := readMoisture(moistureSensor1)
-		println("Moisture level: ", moisture)
-		controlPump(moisture, greenLed)
-
-		time.Sleep(measureInterval)
+		controlPump(moistureSensor1, pump1)
+		time.Sleep(measureFrequency)
 	}
 }
 
@@ -40,9 +38,24 @@ func configureDigitalOutputPins(pins ...machine.Pin) {
 	}
 }
 
+// configureAnalogInputPins configures the given pins as analog input pins with the given configuration
 func configureAnalogInputPins(conf machine.ADCConfig, pins ...machine.ADC) {
 	for _, p := range pins {
 		p.Configure(conf)
+	}
+}
+
+// controlPump controls the pump based on the moisture level
+func controlPump(sensor machine.ADC, pump machine.Pin) {
+	const wateringDuration = time.Millisecond * 1500
+
+	moisture := readMoisture(sensor)
+	println("Moisture level: ", moisture)
+
+	// If moisture level is dried, turn on the warning light
+	if moisture > moistureThreshold {
+		runPump(pump, wateringDuration)
+		return
 	}
 }
 
@@ -51,19 +64,8 @@ func readMoisture(sensor machine.ADC) uint16 {
 	return sensor.Get() // Analog value of moisture level
 }
 
-// controlPump controls the LEDs based on the moisture level
-func controlPump(moisture uint16, pump machine.Pin) {
-	const wateringTime = time.Second * 1
-
-	// If moisture level is dried, turn on the warning light
-	if moisture > moistureThreshold {
-		executePumpAction(pump, wateringTime)
-		return
-	}
-}
-
-// executePumpAction starts a pump for a certain duration
-func executePumpAction(pump machine.Pin, duration time.Duration) {
+// runPump starts a pump for a certain duration
+func runPump(pump machine.Pin, duration time.Duration) {
 	pump.High()
 	time.Sleep(duration)
 	pump.Low()

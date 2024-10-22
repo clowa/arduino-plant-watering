@@ -21,3 +21,7 @@ tinygo flash -target arduino .
 # Or if you have go-task installed
 task flash
 ```
+
+## Lessons Learned
+
+- Do not use Pin `D13` on the Arduino Uno R3, for pumps since it's used as system LED which fires on every flash/reset/etc. of the board.
