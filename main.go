@@ -18,11 +18,10 @@ var (
 func main() {
 	machine.InitADC() //! Better don't forget to initialize ADC
 	configureDigitalOutputPins(greenLed)
-
-	moistureSensor1.Configure(machine.ADCConfig{
+	configureAnalogInputPins(machine.ADCConfig{
 		Reference:  5000, // 5 Volts
 		Resolution: 10,   // 10 bits
-	})
+	}, moistureSensor1)
 
 	// Check the moisture level in a certain interval
 	for {
@@ -38,6 +37,12 @@ func main() {
 func configureDigitalOutputPins(pins ...machine.Pin) {
 	for _, p := range pins {
 		p.Configure(machine.PinConfig{Mode: machine.PinOutput})
+	}
+}
+
+func configureAnalogInputPins(conf machine.ADCConfig, pins ...machine.ADC) {
+	for _, p := range pins {
+		p.Configure(conf)
 	}
 }
 
