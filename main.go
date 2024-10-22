@@ -11,6 +11,7 @@ const (
 )
 
 var (
+	systemLed = machine.D13
 	// Plant pair 1
 	moistureSensor1 = machine.ADC{Pin: machine.ADC0}
 	pump1           = machine.D11
@@ -55,7 +56,8 @@ func controlPump(sensor machine.ADC, pump machine.Pin) {
 	// If moisture level is dried, turn on the warning light
 	if moisture > moistureThreshold {
 		runPump(pump, wateringDuration)
-		return
+	} else {
+		blink(systemLed, time.Millisecond*250)
 	}
 }
 
@@ -69,4 +71,11 @@ func runPump(pump machine.Pin, duration time.Duration) {
 	pump.High()
 	time.Sleep(duration)
 	pump.Low()
+}
+
+// blink blinks the given LED for the given duration
+func blink(led machine.Pin, duration time.Duration) {
+	led.High()
+	time.Sleep(duration)
+	led.Low()
 }
