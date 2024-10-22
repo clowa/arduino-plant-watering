@@ -27,3 +27,9 @@ tasks:
     path: .
     cmds:
       - tinygo monitor -target arduino -baudrate 9600
+
+  scan:
+    deps: [build]
+    path: .
+    cmds:
+      - trivy fs bin/main.hex
